@@ -9,15 +9,16 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dss</groupId>
-	<artifactId>DSS7-EUREKA-V1</artifactId>
+	<artifactId>DSS7-EUREKA</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>DSS7-EUREKA-V1</name>
-	<description>DSS7-EUREKA-V1</description>
+	<name>DSS7-EUREKA</name>
+	<description>DSS7-EUREKA</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.4</spring-cloud.version>
 	</properties>
 	<dependencies>
+		<!--        eureka server dependency-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -31,6 +32,7 @@
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+			<!--            spring cloud dependency configuration-->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -49,5 +51,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

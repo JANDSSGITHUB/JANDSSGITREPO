@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DSS1-VIEW/DSS1-VIEW.iml" filepath="$PROJECT_DIR$/DSS1-VIEW/DSS1-VIEW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS2-BACKEND/DSS2-BACKEND.iml" filepath="$PROJECT_DIR$/DSS2-BACKEND/DSS2-BACKEND.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS3-MS-LOGIN/DSS3-MS-LOGIN.iml" filepath="$PROJECT_DIR$/DSS3-MS-LOGIN/DSS3-MS-LOGIN.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS4-MS-MOVIE/DSS4-MS-MOVIE.iml" filepath="$PROJECT_DIR$/DSS4-MS-MOVIE/DSS4-MS-MOVIE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS4-MS-MOVIEACTOR/DSS4-MS-MOVIEACTOR.iml" filepath="$PROJECT_DIR$/DSS4-MS-MOVIEACTOR/DSS4-MS-MOVIEACTOR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS5-MS-ACTOR/DSS5-MS-ACTOR.iml" filepath="$PROJECT_DIR$/DSS5-MS-ACTOR/DSS5-MS-ACTOR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS6-MS-REVIEW/DSS6-MS-REVIEW.iml" filepath="$PROJECT_DIR$/DSS6-MS-REVIEW/DSS6-MS-REVIEW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS7-EUREKA/DSS7-EUREKA.iml" filepath="$PROJECT_DIR$/DSS7-EUREKA/DSS7-EUREKA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JANDSSGITREPO.iml" filepath="$PROJECT_DIR$/.idea/JANDSSGITREPO.iml" />
+    </modules>
+  </component>
+</project>
