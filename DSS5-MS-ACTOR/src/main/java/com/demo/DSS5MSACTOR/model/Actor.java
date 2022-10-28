@@ -16,7 +16,7 @@ public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int actor_id;
+    private int actorId;
     private String firstName;
     private String lastName;
     private char gender;
