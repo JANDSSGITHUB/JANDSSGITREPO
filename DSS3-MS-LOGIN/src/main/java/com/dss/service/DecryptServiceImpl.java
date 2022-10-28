@@ -3,7 +3,7 @@ package com.dss.service;
 
 import com.dss.exception.NoRegisteredAccountException;
 import com.dss.model.User;
-import com.dss.repository.RegistrationRepository;
+import com.dss.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 public class DecryptServiceImpl implements DecryptService {
 
     @Autowired
-    RegistrationRepository registrationRepository;
+    AdminRepository registrationRepository;
 
     public User decryptPass(User customer){
         String hashedPassword = getDecryptedPass(customer.getPassword());

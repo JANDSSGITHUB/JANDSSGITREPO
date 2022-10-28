@@ -1,4 +1,4 @@
-package com.dss.exception;
+package com.dss.DSS4MSMOVIEACTOR.exception;
 
 import lombok.Getter;
 import lombok.Setter;

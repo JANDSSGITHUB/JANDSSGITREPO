@@ -13,6 +13,14 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
 
+    @ExceptionHandler(CustomErrorException.class)
+    public ResponseEntity<?> CustomErrorException(CustomErrorException e, WebRequest request){
+        ErrorMessage error = new ErrorMessage(e.getMessage(),
+                HttpStatus.INTERNAL_SERVER_ERROR.value());
+        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+
+    }
+
     @ExceptionHandler(NoRegisteredAccountException.class)
     public ResponseEntity<?> handleRegisterNoFoundException(NoRegisteredAccountException e, WebRequest request){
         ErrorMessage error = new ErrorMessage("No Registered Account!",

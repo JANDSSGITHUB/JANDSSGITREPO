@@ -10,6 +10,7 @@
         <module name="DSS6-MS-REVIEW" />
         <module name="DSS3-MS-LOGIN" />
         <module name="DSS2-BACKEND" />
+        <module name="virtuallearningsystem" />
         <module name="DSS7-EUREKA" />
         <module name="DSS4-MS-MOVIEACTOR" />
         <module name="DSS4-MS-MOVIE" />
@@ -25,6 +26,7 @@
       <module name="DSS5-MS-ACTOR" target="1.8" />
       <module name="DSS6-MS-REVIEW" target="1.8" />
       <module name="DSS7-EUREKA" target="1.8" />
+      <module name="virtuallearningsystem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -37,6 +39,7 @@
       <module name="DSS5-MS-ACTOR" options="-parameters" />
       <module name="DSS6-MS-REVIEW" options="-parameters" />
       <module name="DSS7-EUREKA" options="-parameters" />
+      <module name="virtuallearningsystem" options="-parameters" />
     </option>
   </component>
 </project>

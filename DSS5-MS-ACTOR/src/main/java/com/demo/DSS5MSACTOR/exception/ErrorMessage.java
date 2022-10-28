@@ -1,4 +1,4 @@
-package com.dss.exception;
+package com.demo.DSS5MSACTOR.exception;
 
 import lombok.Getter;
 import lombok.Setter;

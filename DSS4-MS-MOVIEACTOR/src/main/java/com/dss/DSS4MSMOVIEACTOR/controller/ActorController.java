@@ -1,44 +1,42 @@
-package com.dss.controller;
+package com.dss.DSS4MSMOVIEACTOR.controller;
 
-import com.dss.model.RegistrationRequestModel;
-import com.dss.model.User;
-import com.dss.service.RegistrationService;
+import com.dss.DSS4MSMOVIEACTOR.model.ActorRequestModel;
+import com.dss.DSS4MSMOVIEACTOR.service.ActorService;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/actor")
 @CrossOrigin
-public class RegistrationController {
+public class ActorController {
 
     @Autowired
-    private RegistrationService registrationService;
+    ActorService actorService;
 
-    @PostMapping("/registrations")
+    @PostMapping()
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Server error"),
             @ApiResponse(code = 404, message = "Service not found"),
             @ApiResponse(code = 200, message = "Success")})
     @ResponseStatus(HttpStatus.OK)
-    public String add(@RequestBody User admin){
-        registrationService.save(admin);
-        return "Added new admin";
+    public String add(@RequestBody ActorRequestModel requestModel){
+        actorService.save(requestModel);
+        return "Added new Actor";
     }
 
 
-    @GetMapping("/registrations/validate/{emailId}/{password}")
+    @DeleteMapping()
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Server error"),
             @ApiResponse(code = 404, message = "Service not found"),
             @ApiResponse(code = 200, message = "Success")})
     @ResponseStatus(HttpStatus.OK)
-    public User authenticate(@PathVariable(value="emailId") String emailId, @PathVariable( value ="password") String password) {
-        return registrationService.validate(emailId,password);
+    public String delete(@RequestBody ActorRequestModel requestModel){
+        actorService.delete(requestModel);
+        return "Deleted Actor";
     }
 
 }
