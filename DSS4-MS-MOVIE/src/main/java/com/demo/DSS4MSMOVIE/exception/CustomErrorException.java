@@ -1,4 +1,4 @@
-package com.demo.DSS5MSACTOR.exception;
+package com.demo.DSS4MSMOVIE.exception;
 
 public class CustomErrorException extends RuntimeException{
     public CustomErrorException(String message){
