@@ -1,4 +1,4 @@
-package com.demo.DSS4MSMOVIE.exception;
+package com.demo.DSS5MSREVIEW.exception;
 
 
 import org.springframework.http.HttpStatus;
@@ -12,20 +12,10 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
 
-
-//    @ExceptionHandler(NullValuesException.class)
-//    public ResponseEntity<?> handleNullValuesException(NullValuesException e, WebRequest request){
-//        ErrorMessage error = new ErrorMessage(e.getMessage(),
-//                HttpStatus.INTERNAL_SERVER_ERROR.value(), "Null values");
-//        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
-//
-//    }
-
-
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGlobalException(Exception e, WebRequest request){
         ErrorMessage error = new ErrorMessage(e.getMessage(),
-                HttpStatus.INTERNAL_SERVER_ERROR.value(), "pat pogi");
+                HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage());
         return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
