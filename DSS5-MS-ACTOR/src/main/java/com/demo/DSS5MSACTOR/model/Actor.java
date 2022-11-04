@@ -22,4 +22,18 @@ public class Actor {
     private char gender;
     private int age;
 
+    public Actor(String firstName, String lastName, char gender, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+    }
+    public Actor(int id,String firstName, String lastName, char gender, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+        this.actorId = id;
+    }
+    public Actor(){}
 }

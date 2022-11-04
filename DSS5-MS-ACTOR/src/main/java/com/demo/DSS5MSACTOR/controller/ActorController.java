@@ -2,6 +2,8 @@ package com.demo.DSS5MSACTOR.controller;
 
 import com.demo.DSS5MSACTOR.model.Actor;
 import com.demo.DSS5MSACTOR.model.ActorRequestModel;
+import com.demo.DSS5MSACTOR.model.ActorSearchModel;
+import com.demo.DSS5MSACTOR.model.MovieActor;
 import com.demo.DSS5MSACTOR.service.ActorService;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.Path;
 import java.util.ArrayList;
 
 @RestController
@@ -48,8 +51,8 @@ public class ActorController {
             @ApiResponse(code = 404, message = "Service not found"),
             @ApiResponse(code = 200, message = "Success")})
     @ResponseStatus(HttpStatus.OK)
-    public ArrayList<Actor> findAll(){
-        return actorService.findAll();
+    public ArrayList<Actor> findAll(@RequestBody ActorSearchModel searchModel){
+        return actorService.findAll(searchModel);
     }
 
     @PutMapping()
@@ -62,5 +65,16 @@ public class ActorController {
          actorService.update(requestModel);
          return "Updated actor";
     }
+
+    @GetMapping("findActorById/{id}")
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = "Server error"),
+            @ApiResponse(code = 404, message = "Service not found"),
+            @ApiResponse(code = 200, message = "Success")})
+    @ResponseStatus(HttpStatus.OK)
+    public Actor findByActorId(@PathVariable(value = "id")Integer id){
+        return actorService.findById(id);
+    }
+
 
 }

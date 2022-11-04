@@ -12,5 +12,22 @@ public class ActorRequestModel {
     private String lastName;
     private char gender;
     private int age;
+    private int movieId;
+
+    public ActorRequestModel(
+            int actorId,
+            String firstName,
+            String lastName,
+            char gender,
+            int age,
+            int movieId
+    ){
+        this.actorId = actorId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+        this.movieId = movieId;
+    }
 
 }
