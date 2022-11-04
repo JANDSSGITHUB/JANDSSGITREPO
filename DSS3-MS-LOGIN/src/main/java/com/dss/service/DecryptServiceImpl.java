@@ -16,10 +16,10 @@ public class DecryptServiceImpl implements DecryptService {
     @Autowired
     AdminRepository registrationRepository;
 
-    public User decryptPass(User customer){
-        String hashedPassword = getDecryptedPass(customer.getPassword());
-        customer.setPassword(hashedPassword);
-        return customer;
+    public User decryptPass(User user){
+        String hashedPassword = getDecryptedPass(user.getPassword());
+        user.setPassword(hashedPassword);
+        return user;
     }
 
     public User validateUser(String emailId, String password){

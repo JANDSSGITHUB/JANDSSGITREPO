@@ -4,7 +4,9 @@ import com.dss.exception.CustomErrorException;
 import com.dss.exception.DuplicateUserException;
 import com.dss.exception.NullValuesException;
 import com.dss.model.User;
+import com.dss.model.UserSearchModel;
 import com.dss.repository.AdminRepository;
+import com.dss.repository.AdminRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,12 +35,15 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     private void validate(User user){
+
+        if(user.getEmailId() == null||user.getFirstName() == null || user.getLastName() == null
+        ||user.getPhoneNumber() ==null || user.getPassword() ==null){
+            throw new NullValuesException("Please fill out all the values.");
+        }
         boolean hasSpChar = checkForSpChar(user.getFirstName(),user.getLastName());
         boolean hasCombination = validateCombination(user.getPassword());
         boolean phoneNumberInUse = validatePhoneNumber(user.getPhoneNumber());
-        if(user.getFirstName().isEmpty() || user.getLastName().isEmpty()){
-            throw new NullValuesException("Please fill out all the values.");
-        }if(hasSpChar){
+        if(hasSpChar){
             throw new CustomErrorException("Special characters/numbers are invalid for First Name & Last Name");
         }
         if(!hasCombination){
@@ -50,10 +55,8 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     private boolean validatePhoneNumber(String phoneNumber){
-        List<User> userList = adminRepository.findAll();
-        for(User user : userList){
-            return user.getPhoneNumber().equals(phoneNumber);
-        }return false;
+        User user = adminRepository.findByPhoneNumber(phoneNumber);
+        return user != null;
     }
 
     private boolean checkForSpChar(String fName, String lName){
@@ -69,6 +72,12 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public User validate(String emailId, String password) {
         return decryptService.validateUser(emailId,password);
+    }
+
+    @Override
+    public List<User> findAllUsers(UserSearchModel searchModel) {
+        User user = new User(searchModel.getEmail(),searchModel.getFirstName(),searchModel.getLastName(),searchModel.getPhoneNumber());
+        return adminRepository.findAll(AdminRepositoryImpl.createCriteria(user));
     }
 
 

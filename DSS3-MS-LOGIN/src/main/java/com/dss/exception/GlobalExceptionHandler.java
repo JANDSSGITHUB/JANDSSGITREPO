@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DuplicateUserException.class)
     public ResponseEntity<?> handleDuplicateUserException(DuplicateUserException e, WebRequest request){
-        ErrorMessage error = new ErrorMessage("The account is already registered!",
+        ErrorMessage error = new ErrorMessage("Email has already been used",
                 HttpStatus.INTERNAL_SERVER_ERROR.value(), "Logical Error");
         return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
@@ -49,8 +49,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGlobalException(Exception e, WebRequest request){
         System.out.println("error" +e.getMessage());
-        ErrorMessage error = new ErrorMessage(BookingEnum.BOOKING_NOT_FOUND,
-                HttpStatus.INTERNAL_SERVER_ERROR.value(), "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505#:~:text=The%20HyperText%20Transfer%20Protocol%20(HTTP,not%20supported%20by%20the%20server.");
+        ErrorMessage error = new ErrorMessage(e.getMessage(),
+                HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage());
         return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }

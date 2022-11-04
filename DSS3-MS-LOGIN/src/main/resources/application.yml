@@ -11,3 +11,22 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-service
+  labels:
+    app: login-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: login-service
+    spec:
+      containers:
+      - name: login-service
+        image: janrcollabera/login
+        ports:
+          - containerPort: 9003
+
