@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CLIENT-APP/CLIENT-APP.iml" filepath="$PROJECT_DIR$/CLIENT-APP/CLIENT-APP.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSS1-VIEW/DSS1-VIEW.iml" filepath="$PROJECT_DIR$/DSS1-VIEW/DSS1-VIEW.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSS2-BACKEND/DSS2-BACKEND.iml" filepath="$PROJECT_DIR$/DSS2-BACKEND/DSS2-BACKEND.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSS3-MS-LOGIN/DSS3-MS-LOGIN.iml" filepath="$PROJECT_DIR$/DSS3-MS-LOGIN/DSS3-MS-LOGIN.iml" />
@@ -10,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/DSS5-MS-ACTOR/DSS5-MS-ACTOR.iml" filepath="$PROJECT_DIR$/DSS5-MS-ACTOR/DSS5-MS-ACTOR.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSS6-MS-REVIEW/DSS6-MS-REVIEW.iml" filepath="$PROJECT_DIR$/DSS6-MS-REVIEW/DSS6-MS-REVIEW.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSS7-EUREKA/DSS7-EUREKA.iml" filepath="$PROJECT_DIR$/DSS7-EUREKA/DSS7-EUREKA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSS8-API-GATEWAY/DSS8-API-GATEWAY.iml" filepath="$PROJECT_DIR$/DSS8-API-GATEWAY/DSS8-API-GATEWAY.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JANDSSGITREPO.iml" filepath="$PROJECT_DIR$/.idea/JANDSSGITREPO.iml" />
       <module fileurl="file://$USER_HOME$/midterm/virtuallearningsystem/virtuallearningsystem.iml" filepath="$USER_HOME$/midterm/virtuallearningsystem/virtuallearningsystem.iml" />
     </modules>

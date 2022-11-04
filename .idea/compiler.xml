@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,15 +10,19 @@
         <module name="DSS1-VIEW" />
         <module name="DSS6-MS-REVIEW" />
         <module name="DSS3-MS-LOGIN" />
+        <module name="CLIENT-APP" />
         <module name="DSS2-BACKEND" />
         <module name="virtuallearningsystem" />
         <module name="DSS7-EUREKA" />
+        <module name="DSS8-API-GATEWAY" />
         <module name="DSS4-MS-MOVIEACTOR" />
         <module name="DSS4-MS-MOVIE" />
         <module name="DSS5-MS-ACTOR" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CLIENT-APP" target="1.8" />
+      <module name="CLIENT-APP-EUREKA" target="1.8" />
       <module name="DSS1-VIEW" target="1.8" />
       <module name="DSS2-BACKEND" target="1.8" />
       <module name="DSS3-MS-LOGIN" target="1.8" />
@@ -26,11 +31,14 @@
       <module name="DSS5-MS-ACTOR" target="1.8" />
       <module name="DSS6-MS-REVIEW" target="1.8" />
       <module name="DSS7-EUREKA" target="1.8" />
+      <module name="DSS8-API-GATEWAY" target="11" />
       <module name="virtuallearningsystem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CLIENT-APP" options="-parameters" />
+      <module name="CLIENT-APP-EUREKA" options="-parameters" />
       <module name="DSS1-VIEW" options="-parameters" />
       <module name="DSS2-BACKEND" options="-parameters" />
       <module name="DSS3-MS-LOGIN" options="-parameters" />
@@ -39,6 +47,7 @@
       <module name="DSS5-MS-ACTOR" options="-parameters" />
       <module name="DSS6-MS-REVIEW" options="-parameters" />
       <module name="DSS7-EUREKA" options="-parameters" />
+      <module name="DSS8-API-GATEWAY" options="-parameters" />
       <module name="virtuallearningsystem" options="-parameters" />
     </option>
   </component>
