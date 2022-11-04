@@ -2,6 +2,7 @@ package com.demo.DSS4MSMOVIE.controller;
 
 import com.demo.DSS4MSMOVIE.model.Movie;
 import com.demo.DSS4MSMOVIE.model.MovieRequestModel;
+import com.demo.DSS4MSMOVIE.model.MovieSearchModel;
 import com.demo.DSS4MSMOVIE.service.MovieService;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -19,6 +20,7 @@ public class MovieController {
     @Autowired
     MovieService movieService;
 
+
     @PostMapping()
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Server error"),
@@ -26,7 +28,7 @@ public class MovieController {
             @ApiResponse(code = 200, message = "Success")})
     @ResponseStatus(HttpStatus.OK)
     public String add(@RequestBody MovieRequestModel requestModel){
-        movieService.save(requestModel);
+        Movie movie = movieService.save(requestModel);
         return "Added new Movie";
     }
 
@@ -36,8 +38,8 @@ public class MovieController {
             @ApiResponse(code = 404, message = "Service not found"),
             @ApiResponse(code = 200, message = "Success")})
     @ResponseStatus(HttpStatus.OK)
-    public ArrayList<Movie> findAll(){
-        return movieService.findAll();
+    public ArrayList<Movie> findAll(@RequestBody MovieSearchModel searchModel){
+        return movieService.findAll(searchModel);
     }
 
     @DeleteMapping()
@@ -50,6 +52,30 @@ public class MovieController {
          movieService.delete(requestModel);
          return "Movie delete";
     }
+
+    @PutMapping()
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = "Server error"),
+            @ApiResponse(code = 404, message = "Service not found"),
+            @ApiResponse(code = 200, message = "Success")})
+    @ResponseStatus(HttpStatus.OK)
+    public String update(@RequestBody MovieRequestModel requestModel){
+        movieService.update(requestModel);
+        return "Updated movie details";
+    }
+
+
+    @GetMapping("/findByMovieId/{id}")
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = "Server error"),
+            @ApiResponse(code = 404, message = "Service not found"),
+            @ApiResponse(code = 200, message = "Success")})
+    @ResponseStatus(HttpStatus.OK)
+    public Movie findById(@PathVariable int id){
+        return movieService.findById(id);
+    }
+
+
 
 
 }
