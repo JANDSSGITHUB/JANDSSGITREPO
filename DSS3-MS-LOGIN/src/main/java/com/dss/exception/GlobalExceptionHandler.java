@@ -1,7 +1,6 @@
 package com.dss.exception;
 
 
-import com.dss.util.BookingEnum;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -17,7 +16,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> CustomErrorException(CustomErrorException e, WebRequest request){
         ErrorMessage error = new ErrorMessage(e.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value());
-        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
 
@@ -25,7 +24,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleRegisterNoFoundException(NoRegisteredAccountException e, WebRequest request){
         ErrorMessage error = new ErrorMessage("No Registered Account!",
                 HttpStatus.INTERNAL_SERVER_ERROR.value(), "Logical Error");
-        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
 
@@ -33,7 +32,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleDuplicateUserException(DuplicateUserException e, WebRequest request){
         ErrorMessage error = new ErrorMessage("Email has already been used",
                 HttpStatus.INTERNAL_SERVER_ERROR.value(), "Logical Error");
-        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
 
@@ -41,17 +40,16 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleNullValuesException(NullValuesException e, WebRequest request){
         ErrorMessage error = new ErrorMessage(e.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(), "Null values");
-        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
 
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGlobalException(Exception e, WebRequest request){
-        System.out.println("error" +e.getMessage());
         ErrorMessage error = new ErrorMessage(e.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage());
-        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
 }

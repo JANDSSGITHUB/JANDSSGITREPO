@@ -1,7 +1,5 @@
 package com.demo.DSS4MSMOVIE.model;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 

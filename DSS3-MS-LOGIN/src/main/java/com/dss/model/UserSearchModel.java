@@ -11,4 +11,11 @@ public class UserSearchModel {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+
+    public UserSearchModel(String email,String firstName,String lastName,String phoneNumber){
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
 }

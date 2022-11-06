@@ -5,18 +5,12 @@ import com.demo.DSS5MSREVIEW.exception.CustomErrorException;
 import com.demo.DSS5MSREVIEW.model.Movie;
 import com.demo.DSS5MSREVIEW.model.Review;
 import com.demo.DSS5MSREVIEW.model.ReviewRequestModel;
-import com.demo.DSS5MSREVIEW.repository.MovieRepository;
 import com.demo.DSS5MSREVIEW.repository.ReviewRepository;
 import com.demo.DSS5MSREVIEW.util.FeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{

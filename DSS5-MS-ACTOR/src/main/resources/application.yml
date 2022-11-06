@@ -1,6 +1,6 @@
 spring:
   application:
-    name: DDS5-ACTOR
+    name: DSS5-ACTOR
 
 # register with eureka
 eureka:

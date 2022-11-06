@@ -1,6 +1,6 @@
 spring:
   application:
-    name: DDS6-REVIEW
+    name: DSS6-REVIEW
 
 # register with eureka
 eureka:

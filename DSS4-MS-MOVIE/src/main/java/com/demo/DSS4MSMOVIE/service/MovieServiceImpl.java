@@ -10,12 +10,7 @@ import com.demo.DSS4MSMOVIE.repository.MovieRepository;
 import com.demo.DSS4MSMOVIE.repository.MovieRepositoryImpl;
 import com.demo.DSS4MSMOVIE.util.FeignServiceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.Predicate;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;

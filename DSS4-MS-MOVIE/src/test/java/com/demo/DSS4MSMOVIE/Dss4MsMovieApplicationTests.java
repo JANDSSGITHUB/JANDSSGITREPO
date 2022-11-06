@@ -17,6 +17,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.jpa.domain.Specification;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static org.mockito.Mockito.*;
@@ -54,6 +56,48 @@ class Dss4MsMovieApplicationTests {
 		when(movieRepository.save(movie)).thenReturn(movie);
 		when(feignServiceUtil.findActor(actor.getActorId())).thenReturn(actor);
 		Assertions.assertNull(movieService.save(movieRequestModel));
+	}
+	@Test
+	void updateMovie() {
+		MovieRequestModel movieRequestModel = new MovieRequestModel(2
+				, null
+				, 180
+				,null
+				, "shrek.jpg"
+				, null);
+		Movie movie = new Movie(2
+				, null
+				, 181
+				,null
+				, "shrek.jpg"
+				, null);
+		Mockito.when(movieRepository.findByMovieId(movie.getMovieId())).thenReturn(movie);
+		movieService.update(movieRequestModel);
+	}
+
+	@Test
+	void deleteMovie() throws ParseException {
+		Set<Actor> actors = new HashSet<>();
+		Actor actor = new Actor(1,"Pat", "Ramirez", 'M', 24);
+		actors.add(actor);
+		String dateString = "2020-1-26";
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		MovieRequestModel movieRequestModel = new MovieRequestModel(1,
+				"Shrek"
+				, 180
+				,date = formatter.parse(dateString)
+				, "Shrek.jpg"
+				, actors);
+		Movie movie = new Movie(1,
+				"Shrek"
+				, 180
+				,date = formatter.parse(dateString)
+				, "Shrek.jpg"
+				, actors);
+		Mockito.when(movieRepository.findByMovieId(movie.getMovieId())).thenReturn(movie);
+		movieService.delete(movieRequestModel);
+		doNothing().when(movieRepository).delete(movie);
 	}
 
 	@Test

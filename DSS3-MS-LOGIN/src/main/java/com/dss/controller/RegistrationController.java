@@ -1,6 +1,4 @@
 package com.dss.controller;
-
-import com.dss.model.RegistrationRequestModel;
 import com.dss.model.User;
 import com.dss.model.UserSearchModel;
 import com.dss.service.RegistrationService;

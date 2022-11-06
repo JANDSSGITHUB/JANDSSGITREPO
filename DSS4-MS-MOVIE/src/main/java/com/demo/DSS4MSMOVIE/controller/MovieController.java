@@ -6,6 +6,8 @@ import com.demo.DSS4MSMOVIE.model.MovieSearchModel;
 import com.demo.DSS4MSMOVIE.service.MovieService;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Info;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

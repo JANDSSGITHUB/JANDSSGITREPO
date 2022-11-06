@@ -1,6 +1,6 @@
 spring:
   application:
-    name: DDS4-MOVIE
+    name: DSS4-MOVIE
 
 # register with eureka
 eureka:

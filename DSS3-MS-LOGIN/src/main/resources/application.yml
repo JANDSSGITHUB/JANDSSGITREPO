@@ -1,6 +1,6 @@
 spring:
   application:
-    name: DDS3-LOGIN
+    name: DSS3-LOGIN
 
 # register with eureka
 eureka:
