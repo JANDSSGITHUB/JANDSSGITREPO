@@ -44,7 +44,7 @@ public class MovieController {
         return movieService.findAll(searchModel);
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/try")
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Server error"),
             @ApiResponse(code = 404, message = "Service not found"),

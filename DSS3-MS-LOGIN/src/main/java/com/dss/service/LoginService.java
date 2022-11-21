@@ -4,5 +4,5 @@ import com.dss.model.LoginRequestModel;
 
 public interface LoginService {
 
-    boolean validate(LoginRequestModel requestModel);
+    String validate(LoginRequestModel requestModel);
 }

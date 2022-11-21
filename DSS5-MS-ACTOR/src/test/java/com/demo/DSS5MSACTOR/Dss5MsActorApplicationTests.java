@@ -230,4 +230,14 @@ class Dss5MsActorApplicationTests {
 		Assertions.assertEquals(actors, actorService.findAll(actorSearchModel));
 	}
 
+
+	@Test
+	void setMovieActor(){
+		MovieActor movieActor = new MovieActor();
+		movieActor.setActorId(1);
+		movieActor.setMovieId(1);
+		int actorId = movieActor.getActorId();
+		int movieId = movieActor.getMovieId();
+	}
+
 }

@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/register")
-@CrossOrigin
 public class RegistrationController {
 
     @Autowired
@@ -55,5 +54,7 @@ public class RegistrationController {
     }
     @GetMapping("/instance")
     public String getInstancePort(){return environment.getProperty("local.server.port");}
+
+
 
 }

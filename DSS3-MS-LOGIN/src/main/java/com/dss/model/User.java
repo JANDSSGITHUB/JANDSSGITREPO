@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity(name="admin")
 @Getter
@@ -17,6 +18,9 @@ public class User {
     private String lastName;
     private String password;
     private String phoneNumber;
+
+    @Transient
+    String token;
 
     public User(String emailId, String firstName, String lastName, String phoneNumber){
         this.emailId = emailId;

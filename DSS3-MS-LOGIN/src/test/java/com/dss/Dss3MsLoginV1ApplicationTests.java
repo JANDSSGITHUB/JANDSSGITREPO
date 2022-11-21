@@ -1,5 +1,6 @@
 package com.dss;
 
+import com.dss.controller.RegistrationController;
 import com.dss.exception.*;
 import com.dss.model.LoginRequestModel;
 import com.dss.model.RegistrationRequestModel;
@@ -10,14 +11,18 @@ import com.dss.service.LoginService;
 import com.dss.service.RegistrationService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import static org.mockito.Mockito.when;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SpringBootTest
@@ -32,6 +37,9 @@ class Dss3MsLoginV1ApplicationTests {
 	@Autowired
 	private LoginService loginService;
 
+	@InjectMocks
+	RegistrationController registrationController;
+
 
 
 
@@ -40,7 +48,7 @@ class Dss3MsLoginV1ApplicationTests {
 		User user = new User("Patrick@yahoo.com","PatrickTest",
 				"RamirezTest","Pogi1@","0909");
 
-		Mockito.when(adminRepository.save(user)).thenReturn(user);
+		when(adminRepository.save(user)).thenReturn(user);
 		Assertions.assertEquals(user, registrationService.save(user));
 	}
 
@@ -73,7 +81,7 @@ class Dss3MsLoginV1ApplicationTests {
 	@Test
 	void addAdminHasPhoneNumber(){
 		User mockUser = new User("pat@gmail.com", "pat", "pat","Test!1", "123");
-		Mockito.when(adminRepository.findByPhoneNumber(mockUser.getPhoneNumber())).thenReturn(mockUser);
+		when(adminRepository.findByPhoneNumber(mockUser.getPhoneNumber())).thenReturn(mockUser);
 
 		User user = new User("test@gmail.com", "test", "test","Test!1", "123");
 		Assertions.assertThrows(CustomErrorException.class, () -> registrationService.save(user));
@@ -82,7 +90,7 @@ class Dss3MsLoginV1ApplicationTests {
 	@Test
 	void addAdminAlreadyExistsEmail(){
 		User mockUser = new User("pat@gmail.com", "test", "test","Test!1", "654");
-		Mockito.when(adminRepository.findByEmailId(mockUser.getEmailId())).thenReturn(Optional.of(mockUser));
+		when(adminRepository.findByEmailId(mockUser.getEmailId())).thenReturn(Optional.of(mockUser));
 
 		User user = new User("pat@gmail.com", "test", "test","Test!1", "123");
 		Assertions.assertThrows(DuplicateUserException.class, () -> registrationService.save(user));
@@ -101,7 +109,7 @@ class Dss3MsLoginV1ApplicationTests {
 				, "Ramirez"
 				,"39bc68b5bce8017aacce3b9797d384e7"
 				, "091028172");
-		Mockito.when(adminRepository.findByEmailIdAndPassword(user.getEmailId(),user.getPassword())).thenReturn(user);
+		when(adminRepository.findByEmailIdAndPassword(user.getEmailId(),user.getPassword())).thenReturn(user);
 		Assertions.assertEquals(user,registrationService.validate("pat@gmail.com","PatrickPogi1!"));
 	}
 
@@ -112,7 +120,7 @@ class Dss3MsLoginV1ApplicationTests {
 				, "Ramirez"
 				,"39bc68b5bce8017aacce3b9797d384e7"
 				, "091028172");
-		Mockito.when(adminRepository.findByEmailIdAndPassword(user.getEmailId(),user.getPassword())).thenReturn(user);
+		when(adminRepository.findByEmailIdAndPassword(user.getEmailId(),user.getPassword())).thenReturn(user);
 		Assertions.assertThrows(NoRegisteredAccountException.class
 				, () -> registrationService.validate("pat@gmail.com","wrongpassword"));
 	}
@@ -154,7 +162,7 @@ class Dss3MsLoginV1ApplicationTests {
 	@Test
 	void findAllUser(){
 		List<User> user = new ArrayList<>();
-		Mockito.when(adminRepository.findAll()).thenReturn(user);
+		when(adminRepository.findAll()).thenReturn(user);
 		UserSearchModel userSearchModel = new UserSearchModel(
 				"Pat@gmail.com"
 				, "Patrick"
@@ -169,6 +177,9 @@ class Dss3MsLoginV1ApplicationTests {
 		RegistrationRequestModel requestModel = new RegistrationRequestModel();
 		requestModel.setUsername("Patrick");
 		requestModel.setPassword("Password");
+		String username = requestModel.getUsername();
+		String pass = requestModel.getPassword();
+
 	}
 	@Test
 	void setTestUserSearchModel(){
@@ -186,9 +197,10 @@ class Dss3MsLoginV1ApplicationTests {
 				, "091028172");
 		requestModel.setEmailId("pat@gmail.com");
 		requestModel.setPassword("Patrick1@");
-		Mockito.when(adminRepository.findByEmailIdAndPassword(user.getEmailId(),user.getPassword())).thenReturn(user);
+		when(adminRepository.findByEmailIdAndPassword(user.getEmailId(),user.getPassword())).thenReturn(user);
 		Assertions.assertTrue(loginService.validate(requestModel));
 	}
+
 
 
 

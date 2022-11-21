@@ -20,4 +20,5 @@ public class MovieActor {
         this.movieId = movieId;
         this.actorId = actorId;
     }
+    public MovieActor(){}
 }

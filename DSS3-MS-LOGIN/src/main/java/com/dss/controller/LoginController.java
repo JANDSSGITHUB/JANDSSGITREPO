@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/login")
-@CrossOrigin
 public class LoginController {
 
     @Autowired
@@ -25,7 +24,7 @@ public class LoginController {
             @ApiResponse(code = 404, message = "Service not found"),
             @ApiResponse(code = 200, message = "Success")})
     @ResponseStatus(HttpStatus.OK)
-    public boolean login(@RequestBody LoginRequestModel requestModel){
+    public String login(@RequestBody LoginRequestModel requestModel){
         return loginService.validate(requestModel);
     }
 

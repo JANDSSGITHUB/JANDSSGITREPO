@@ -13,8 +13,9 @@ public class LoginServiceImpl implements LoginService{
     DecryptService decryptService;
 
     @Override
-    public boolean validate(LoginRequestModel requestModel) {
+    public String validate(LoginRequestModel requestModel) {
         User user = decryptService.validateUser(requestModel.getEmailId(), requestModel.getPassword());
-        return user != null;
+        //return user != null;
+        return user.getToken();
     }
 }

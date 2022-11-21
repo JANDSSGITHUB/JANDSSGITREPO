@@ -26,4 +26,7 @@ public class MovieSearchModel {
         this.actorList = actorSet;
     }
 
+    public MovieSearchModel(){}
+
+
 }

@@ -69,10 +69,10 @@ public class ActorServiceImpl implements ActorService {
     @Override
     public void update(ActorRequestModel requestModel) {
         Actor actor = findByActorId(requestModel);
-           if(!requestModel.getFirstName().isEmpty()){
+           if(requestModel.getFirstName()!=null){
                actor.setFirstName(requestModel.getFirstName());
            }
-           if(!requestModel.getLastName().isEmpty()){
+           if(requestModel.getLastName()!=null){
                actor.setLastName(requestModel.getLastName());
            }
            if(requestModel.getGender()!= '\0'){
